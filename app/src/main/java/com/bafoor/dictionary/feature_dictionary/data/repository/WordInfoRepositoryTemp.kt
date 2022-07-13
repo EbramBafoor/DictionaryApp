@@ -13,8 +13,10 @@ import javax.inject.Inject
 
 class WordInfoRepositoryTemp(
     private val api: DictionaryApi,
-    private val dao: WordInfoDao
+    private val db: WordInfoDataBase
 ) : WordInfoRepository {
+    
+    private val dao = db.wordDao
 
     override fun getWordInfo(word: String): Flow<Resource<List<WordInfo>>> = flow {
 
